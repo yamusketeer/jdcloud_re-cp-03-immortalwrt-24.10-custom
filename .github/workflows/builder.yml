@@ -54,7 +54,7 @@ jobs:
 
     steps:
     - name: 检查项目分支
-      uses: actions/checkout@main
+      uses: actions/checkout@v4
 
     - name: 初始化编译环境
       env:
@@ -184,7 +184,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 打包上传固件到Actions Artifacts
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v4
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: ${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-${{ env.DEVICE_NAME }}${{ env.BUILD_DOCKERMAN }}
