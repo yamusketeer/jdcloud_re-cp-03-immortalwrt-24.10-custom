@@ -50,6 +50,7 @@ jobs:
 
     permissions:
       contents: write
+      dispatches: write
 
     steps:
     - name: 检查项目分支
