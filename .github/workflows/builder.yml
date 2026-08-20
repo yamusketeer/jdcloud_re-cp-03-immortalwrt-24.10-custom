@@ -32,7 +32,6 @@ on:
 
 env:
   ###############手动修改##############
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
   OPENWRT_NAME: immortalwrt
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
   REPO_BRANCH: openwrt-24.10-6.6
@@ -70,7 +69,7 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: 清理磁盘空间(Ubuntu)
-      uses: jlumbroso/free-disk-space@main
+      uses: jlumbroso/free-disk-space@v1.3.1
       with:
         # this might remove tools that are actually needed,
         # when set to "true" but frees about 6 GB
@@ -199,20 +198,24 @@ jobs:
         echo "- 使用分支：${{ env.REPO_BRANCH }}" >> release.txt
         echo "- 登录地址：${{ env.IP_ADDR }}" >> release.txt
         if [[ "${{ env.BUILD_DOCKERMAN }}" == '-docker' ]]; then
-                echo "- 已编译luci-app-dockerman" >> release.txt
+            echo "- 已编译luci-app-dockerman" >> release.txt
         else
-                echo "- 未编译luci-app-dockerman" >> release.txt
+            echo "- 未编译luci-app-dockerman" >> release.txt
         fi
-        echo "release_tag=${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-${{ env.DEVICE_NAME }}${{ env.BUILD_DOCKERMAN }}" >> $GITHUB_OUTPUT
+        
+        # Sanitize variables to ensure valid GitHub tag syntax
+        TAG_NAME="v24.10-${{ env.FILE_DATE }}"
+        echo "release_tag=$TAG_NAME" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 发布固件至Release
-      uses: softprops/action-gh-release@v2.1.0
+      uses: softprops/action-gh-release@v2
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         files: ${{ env.FIRMWARE }}/*
-        name: ${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-${{ env.DEVICE_NAME }}${{ env.BUILD_DOCKERMAN }}
+        name: "${{ env.OPENWRT_NAME }}-${{ env.FILE_DATE }}"
         tag_name: ${{ steps.tag.outputs.release_tag }}
+        target_commitish: ${{ github.sha }}
         body_path: release.txt
