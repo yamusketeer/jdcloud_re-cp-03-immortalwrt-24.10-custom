@@ -32,6 +32,7 @@ on:
 
 env:
   ###############手动修改##############
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
   OPENWRT_NAME: immortalwrt
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
   REPO_BRANCH: openwrt-24.10-6.6
