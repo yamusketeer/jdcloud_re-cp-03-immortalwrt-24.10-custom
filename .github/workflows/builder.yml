@@ -81,7 +81,7 @@ jobs:
         dotnet: true
         haskell: true
         large-packages: true
-        swap-storage: true
+        swap-storage: false
 
     - name: 下载固件源码
       working-directory: /workdir
