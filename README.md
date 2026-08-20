@@ -25,7 +25,7 @@
 #### 🌐 网络工具
 
 - **科学上网**: Passwall
-- **VPN服务**: WireGuard, OpenVPN Server, IPSec VPN, ZeroTier
+- **VPN服务**: WireGuard, <s>OpenVPN Server, IPSec VPN, ZeroTier</s>
 - **网络管理**:
   - DDNS (支持阿里云、Cloudflare、DNSPOD等多家服务商)
   - UPnP, Wake on LAN (含增强版)
