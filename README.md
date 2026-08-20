@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml/badge.svg)](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml)
 
+A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10
 本项目基于 [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) 框架，专为 **JDCloud RE-CP-03** 路由器构建 ImmortalWrt 24.10 固件。
 
 ## 🎯 目标设备
@@ -24,30 +25,30 @@
 
 #### 🌐 网络工具
 
-- **科学上网**: Passwall
+- **科学上网**: <s>Passwall</s>
 - **VPN服务**: WireGuard, <s>OpenVPN Server, IPSec VPN, ZeroTier</s>
 - **网络管理**:
   - DDNS (支持阿里云、Cloudflare、DNSPOD等多家服务商)
-  - UPnP, Wake on LAN (含增强版)
-  - SQM QoS 流量控制
+  <s>- UPnP, Wake on LAN (含增强版)
+  - SQM QoS 流量控制</s>
   - 带宽限速 (eqos-mtk)
   - 网络加速 (TurboACC-MTK)
-  - ARP绑定
+  <s>- ARP绑定
 - **网络监控**:
   - Netdata 实时监控
   - 流量统计 (nlbwmon)
-  - 系统统计 (statistics)
+  - 系统统计 (statistics)</s>
 - **网络测试**: iperf3, tcping, tcpdump, mtr
 - **安全工具**:
   - AdGuard Home 广告拦截
-  - BanIP 封禁工具
-  - VLMCSD KMS服务器
+  <s>- BanIP 封禁工具
+  - VLMCSD KMS服务器</s>
 
 #### 🐳 容器化支持
 
 - **Docker**: 完整的 Docker 环境
 - **容器管理**: Dockerman Web界面
-- **容器运行时**: containerd, runc, podman
+- **容器运行时**: containerd, runc, <s>podman</s>
 - **容器编排**: docker-compose
 
 #### 💾 存储与文件系统
@@ -55,7 +56,7 @@
 - **文件系统**: ext4, f2fs, BTRFS 支持
 - **存储工具**:
   - 自动挂载
-  - 分区管理 (diskman)
+  <s>- 分区管理 (diskman)</s>
   - USB存储支持
   - 多种分区工具 (fdisk, cfdisk, parted, gdisk)
 - **文件系统工具**:
@@ -65,27 +66,27 @@
 
 #### 🎨 Web界面主题
 
-- Argon 主题
+<s>- Argon 主题</s>
 - Bootstrap Mod 主题
 - Design 主题
 
 #### 🛠️ 系统工具
 
-- **终端**: ttyd Web终端, zsh shell
+- **终端**: <s>ttyd Web终端,</s> zsh shell
 - **编辑器**: vim-fuller, nano
 - **监控**:
   - htop 进程监控
   - 系统性能监控
   - 日志查看器
 - **管理工具**:
-  - 命令执行工具
+  <s>- 命令执行工具</s>
   - 定时任务管理
   - 高级重启管理
 - **网络**:
-  - 以太网唤醒
+  <s>- 以太网唤醒</s>
   - 网络时间同步 (NTP)
 - **其他**:
-  - Lucky 网络工具箱
+  <s>- Lucky 网络工具箱</s>
   - MT WiFi配置工具
 
 ## 🚀 使用方法
