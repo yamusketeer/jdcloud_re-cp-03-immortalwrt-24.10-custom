@@ -30,3 +30,22 @@ sed -i 's/CONFIG_LUCI_LANG_zh-cn=y/# CONFIG_LUCI_LANG_zh-cn is not set/' .config
 # Force disable ttyd and its LuCI interface
 echo "CONFIG_PACKAGE_luci-app-ttyd=n" >> .config
 echo "CONFIG_PACKAGE_ttyd=n" >> .config
+
+# Force disable USB kernel modules and tools
+cat << 'EOF' >> .config
+CONFIG_PACKAGE_kmod-usb-core=n
+CONFIG_PACKAGE_kmod-usb2=n
+CONFIG_PACKAGE_kmod-usb3=n
+CONFIG_PACKAGE_kmod-usb-ehci=n
+CONFIG_PACKAGE_kmod-usb-xhci-hcd=n
+CONFIG_PACKAGE_kmod-usb-xhci-mtk=n
+CONFIG_PACKAGE_kmod-usb-net=n
+CONFIG_PACKAGE_kmod-usb-net-cdc-ether=n
+CONFIG_PACKAGE_kmod-usb-net-rndis=n
+CONFIG_PACKAGE_kmod-usb-storage=n
+CONFIG_PACKAGE_kmod-usb-storage-extras=n
+CONFIG_PACKAGE_kmod-usb-storage-uas=n
+CONFIG_PACKAGE_usbutils=n
+CONFIG_PACKAGE_usbids=n
+CONFIG_PACKAGE_automount=n
+EOF
