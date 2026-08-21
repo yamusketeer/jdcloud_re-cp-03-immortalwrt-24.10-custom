@@ -18,3 +18,11 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+# Force-remove default Chinese translation packages from feed definitions
+find feeds/ -type f -name "Makefile" -exec sed -i 's/+luci-i18n-.*-zh-cn//g' {} +
+find package/ -type f -name "Makefile" -exec sed -i 's/+luci-i18n-.*-zh-cn//g' {} +
+
+# Prevent default Chinese settings from being selected
+sed -i 's/CONFIG_LUCI_LANG_zh_Hans=y/# CONFIG_LUCI_LANG_zh_Hans is not set/' .config 2>/dev/null || true
+sed -i 's/CONFIG_LUCI_LANG_zh-cn=y/# CONFIG_LUCI_LANG_zh-cn is not set/' .config 2>/dev/null || true
