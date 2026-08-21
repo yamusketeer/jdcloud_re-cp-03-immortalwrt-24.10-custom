@@ -26,3 +26,7 @@ find package/ -type f -name "Makefile" -exec sed -i 's/+luci-i18n-.*-zh-cn//g' {
 # Prevent default Chinese settings from being selected
 sed -i 's/CONFIG_LUCI_LANG_zh_Hans=y/# CONFIG_LUCI_LANG_zh_Hans is not set/' .config 2>/dev/null || true
 sed -i 's/CONFIG_LUCI_LANG_zh-cn=y/# CONFIG_LUCI_LANG_zh-cn is not set/' .config 2>/dev/null || true
+
+# Force disable ttyd and its LuCI interface
+echo "CONFIG_PACKAGE_luci-app-ttyd=n" >> .config
+echo "CONFIG_PACKAGE_ttyd=n" >> .config
