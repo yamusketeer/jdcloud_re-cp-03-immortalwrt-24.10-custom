@@ -181,6 +181,19 @@ jobs:
         echo "FILE_DATE=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
+    - name: 检查编译出的 fstab 内容
+      if: steps.compile.outputs.status == 'success'
+      run: |
+        cd openwrt
+        # Print from the target rootfs staging directory before squashfs/ext4 compression
+        if [ -f build_dir/target-aarch64_cortex-a53_musl/root-mediatek/etc/config/fstab ]; then
+            echo "=== ROOTFS /etc/config/fstab ==="
+            cat build_dir/target-aarch64_cortex-a53_musl/root-mediatek/etc/config/fstab
+        else
+            echo "Searching for fstab in build directory..."
+            find build_dir/ -path "*/etc/config/fstab" -exec echo "Found at: {}" \; -exec cat {} \;
+        fi
+        
     - name: 查看磁盘使用情况
       if: (!cancelled())
       run: df -hT
