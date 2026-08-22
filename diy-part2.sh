@@ -27,12 +27,19 @@ find package/ -type f -name "Makefile" -exec sed -i 's/+luci-i18n-.*-zh-cn//g' {
 sed -i 's/CONFIG_LUCI_LANG_zh_Hans=y/# CONFIG_LUCI_LANG_zh_Hans is not set/' .config 2>/dev/null || true
 sed -i 's/CONFIG_LUCI_LANG_zh-cn=y/# CONFIG_LUCI_LANG_zh-cn is not set/' .config 2>/dev/null || true
 
-# Force disable ttyd and its LuCI interface
-echo "CONFIG_PACKAGE_luci-app-ttyd=n" >> .config
-echo "CONFIG_PACKAGE_ttyd=n" >> .config
+# Strip ttyd dependency from autocore and other meta-packages
+find feeds/ package/ -type f -name "Makefile" -exec sed -i 's/+ttyd//g' {} +
+find feeds/ package/ -type f -name "Makefile" -exec sed -i 's/+luci-app-ttyd//g' {} +
 
-# Force disable USB kernel modules and tools
+# Delete existing config selections so make defconfig doesn't preserve them
+sed -i '/CONFIG_PACKAGE_ttyd/d' .config 2>/dev/null || true
+sed -i '/CONFIG_PACKAGE_luci-app-ttyd/d' .config 2>/dev/null || true
+sed -i '/CONFIG_PACKAGE_kmod-usb/d' .config 2>/dev/null || true
+
+# Force disable ttyd, USB kernel modules and tools
 cat << 'EOF' >> .config
+CONFIG_PACKAGE_luci-app-ttyd=n
+CONFIG_PACKAGE_ttyd=n
 CONFIG_PACKAGE_kmod-usb-core=n
 CONFIG_PACKAGE_kmod-usb2=n
 CONFIG_PACKAGE_kmod-usb3=n
