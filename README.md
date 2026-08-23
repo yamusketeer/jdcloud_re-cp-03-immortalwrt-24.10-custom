@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml/badge.svg)](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml)
 
-A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10
+A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10. I like the Wi-Fi driver, it is much faster than the openwrt mac80211. and it has other MTK hardware acceleration.  I remove most of the unnessary stuffs that I don't use to keep the image size smaller. And I only keep English as language setting.
 
 本项目基于 [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) 框架，专为 **JDCloud RE-CP-03** 路由器构建 ImmortalWrt 24.10 固件。
 
