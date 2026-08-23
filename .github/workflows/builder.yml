@@ -29,7 +29,7 @@ on:
 
 env:
   OPENWRT_NAME: immortalwrt
-  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
+  REPO_URL: https://github.com/yamusketeer/immortalwrt-mt798x-6.6
   REPO_BRANCH: openwrt-24.10-6.6
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: immortalwrt.config
@@ -101,8 +101,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    # --- ADDED STEP: Inject custom fstab & enable lsblk ---
-    - name: 写入自定义 fstab 并启用 lsblk
+    - name: 写入自定义 fstab
       run: |
         cd openwrt
 
