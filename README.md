@@ -2,7 +2,15 @@
 
 [![Build Status](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml/badge.svg)](https://github.com/Eivs/jdcloud_re-cp-03-immortalwrt-24.10/actions/workflows/builder.yml)
 
-A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10. I like the Wi-Fi driver, the speed is faster than the openwrt mac80211. And it has other MTK hardware acceleration. I keep adguardhome, wireguard, ddns, samba, pbr, and docker. I remove most of packages that I don't use to reduce the image size. And it is English and Bootstrap-mod only.
+A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10. 
+- The Wi-Fi driver has faster speed but less tweak setting than the OpenWrt mac80211.
+- It has other MTK hardware acceleration settings.
+- Keeping adguardhome, wireguard, ddns, samba, smbmount, pbr, and docker.
+- Removed most of packages that I don't use to reduce the image size. And it is English and Bootstrap-mod only.
+
+This workflow requires:
+Fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10
+Forked from padavanonly/immortalwrt-mt798x-6.6
 
 本项目基于 [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) 框架，专为 **JDCloud RE-CP-03** 路由器构建 ImmortalWrt 24.10 固件。
 
