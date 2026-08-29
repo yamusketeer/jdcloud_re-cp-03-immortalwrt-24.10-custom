@@ -8,10 +8,7 @@ A fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10.
 - Keeping adguardhome, wireguard, ddns, samba, smbmount, pbr, and docker.
 - Removed most of packages that I don't use to reduce the image size. And it is English and Bootstrap-mod only.
 
-This workflow requires:
-Fork from Eivs/jdcloud_re-cp-03-immortalwrt-24.10
-Forked from padavanonly/immortalwrt-mt798x-6.6
-
+=======================================================
 本项目基于 [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) 框架，专为 **JDCloud RE-CP-03** 路由器构建 ImmortalWrt 24.10 固件。
 
 ## 🎯 目标设备
